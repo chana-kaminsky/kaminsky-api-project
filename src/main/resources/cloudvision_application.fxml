@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          prefHeight="400.0" prefWidth="600.0"
+          hgap="40" vgap="20">
+
+    <padding>
+        <Insets top="25" right="10" bottom="10" left="50"/>
+    </padding>
+
+    <Label text="Enter the name of the image that you would like a description of:"
+           GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <font> <Font name="Calibri" size="18"/>  </font>
+    </Label>
+
+    <Label fx:id="errorMessage"
+           GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <font> <Font name="Calibri" size="14"/>  </font>
+    </Label>
+
+    <ImageView fx:id="imageView"
+               fitHeight="400" fitWidth="550"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <TextField fx:id="filename"
+               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+    <Label fx:id="descriptions"
+           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label fx:id="scores"
+           GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+    <Button text="Go!" fx:id="button" onAction="#getImageDescription"
+            GridPane.columnIndex="2" GridPane.RowIndex="0"/>
+
+</GridPane>
