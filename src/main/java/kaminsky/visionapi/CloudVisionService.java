@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface CloudVisionService
 {
-    @Headers({"Authorization: Bearer ya29.c.Kp8BAAgvGc5eSSSYoYrMyAGG_RH77fScMJ9a5p11yHYQh3LUT7Ct7V23Jz463XNzyJ1nSfeZPEmHJOj1op-YKM8wGkyyEUF4n-vWr76SRrcRq-DiTRyPu_PmR8IEAPeL7j67QuklZTZfdDYulbOVnVQr0d1_WFl9l3zhVCjA54qfOgaxbZX3-_w482WoICouszgw2_vErdNf-MvIn5uint11",
+    @Headers({"Authorization: Bearer ya29.c.Kp8BAAil1IpoHv1-r8mUiGa0VHAOgawOBn00LE5lAdM5xNDoxr3skwBxTcAauprhnTFHM1l550yea7fzJHMtsXvzA8KAI23Ylyou2Sjc1OtNnsA_fhEPTAyZUJtWiIK2hyVSnyiVrdHkHvC1x-JohLkEMOl0GK6fml57If_f5AWrSWw63ZZHRwglUlDxrXTC9wYr3TkezbRAZNBSrk5ZCr3B",
               "Content-Type: application/json; charset=utf-8"})
 
     @POST("/v1/images:annotate")

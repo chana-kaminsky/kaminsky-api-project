@@ -55,6 +55,7 @@ public class CloudVisionController
     public void getImageDescription()
     {
         String image = getImageString(filename.getText());
+        // length of detectionTypes must equal length of maxResults
         String[] detectionTypes = {"LABEL_DETECTION"};
         int[] maxResults = {20};
 
@@ -80,7 +81,7 @@ public class CloudVisionController
         }
         catch (Exception exception)
         {
-            onError(new Throwable());
+            onError(exception);
         }
         return image;
     }

@@ -9,7 +9,6 @@ import java.util.Base64;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
 
 public class CloudVisionServiceTest
 {

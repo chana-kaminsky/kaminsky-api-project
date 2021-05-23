@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Create CloudVisionService classes using Retrofit.
+ * Option for HTTP logging.
  */
 public class CloudVisionServiceFactory
 {

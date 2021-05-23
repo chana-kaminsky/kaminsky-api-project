@@ -69,6 +69,7 @@ public class CloudVisionControllerTest
         doReturn(image).when(body.requests.get(0).image).getContent();
         doReturn("LABEL_DETECTION").when(body.requests.get(0).features.get(0)).getType();
         doReturn(20).when(body.requests.get(0).features.get(0)).getMaxResults();
+        doReturn("tree.jpg").when(controller.filename).getText();
         doReturn(Single.never()).when(service).getRequest(any());
 
         // when
