@@ -98,9 +98,6 @@ public class CloudVisionControllerTest
         String newDescription = feed.responses.get(0).labelAnnotations.get(0).getDescription();
         double newScore = Math.round(feed.responses.get(0).labelAnnotations.get(0).getScore() * 10000.0)/100.0;
 
-        TextField filename = mock(TextField.class);
-        controller.filename = filename;
-
         // when
         controller.onCloudVisionRun(feed);
 
@@ -124,7 +121,7 @@ public class CloudVisionControllerTest
         controller.onErrorRun(throwable);
 
         // then
-        verify(errorMessage).setText("Error, please try again");
+        verify(errorMessage).setText("Error, invalid filename. Please try again.");
         verify(imageView).setImage(null);
         verify(descriptions).setText("");
         verify(scores).setText("");
@@ -141,10 +138,12 @@ public class CloudVisionControllerTest
         scores = mock(Label.class);
         errorMessage = mock(Label.class);
         imageView = mock(ImageView.class);
+        TextField filename = mock(TextField.class);
 
         controller.descriptions = descriptions;
         controller.scores = scores;
         controller.errorMessage = errorMessage;
         controller.imageView = imageView;
+        controller.filename = filename;
     }
 }

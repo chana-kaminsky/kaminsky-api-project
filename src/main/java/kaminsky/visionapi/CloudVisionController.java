@@ -15,6 +15,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
 
+/**
+ * CloudVisionController is a class that initializes and
+ * retrieves data from a service for Google Cloud Vision API.
+ */
 public class CloudVisionController
 {
     @FXML
@@ -34,14 +38,23 @@ public class CloudVisionController
         this.service = service;
     }
 
+    /**
+     * Method called when the application is first started.
+     * Initializes a CloudVisionService.
+     */
     public void initialize()
     {
         service = factory.newInstance(false);
     }
 
+    /**
+     * Method called when Go! button on cloudvision_application.fxml
+     * is clicked. Disposable requests data from the API with body
+     * request json and works with the feed as the data gets downloaded.
+     */
     public void getImageDescription()
     {
-        String image = getImageString();
+        String image = getImageString(filename.getText());
         String[] detectionTypes = {"LABEL_DETECTION"};
         int[] maxResults = {20};
 
@@ -51,15 +64,18 @@ public class CloudVisionController
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.trampoline())
                 .subscribe(this::onCloudVision, this::onError);
-
     }
 
-    protected String getImageString()
+    /**
+     * Takes a filename of an image as a String
+     * @return the image as a base64 encoded image String
+     */
+    private String getImageString(String filename)
     {
         String image = "";
         try
         {
-            Path path = Paths.get("images/"+filename.getText());
+            Path path = Paths.get("images/"+filename);
             image = Base64.getEncoder().encodeToString(Files.readAllBytes(path));
         }
         catch (Exception exception)
@@ -69,6 +85,11 @@ public class CloudVisionController
         return image;
     }
 
+    /**
+     * Gets the image descriptions and confidence scores
+     * from the feed and displays them in the application.
+     * @param feed
+     */
     public void onCloudVision(CloudVisionFeed feed)
     {
         Platform.runLater(new Runnable(){
@@ -94,6 +115,10 @@ public class CloudVisionController
         }
     }
 
+    /**
+     * Method called when attempt to call API with invalid filename.
+     * @param throwable
+     */
     public void onError(Throwable throwable)
     {
         Platform.runLater(new Runnable(){
@@ -106,7 +131,7 @@ public class CloudVisionController
 
     public void onErrorRun(Throwable throwable)
     {
-        errorMessage.setText("Error, please try again");
+        errorMessage.setText("Error, invalid filename. Please try again.");
         imageView.setImage(null);
         descriptions.setText("");
         scores.setText("");
