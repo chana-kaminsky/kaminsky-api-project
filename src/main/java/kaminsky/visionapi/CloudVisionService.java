@@ -15,6 +15,10 @@ public interface CloudVisionService
     Single<CloudVisionFeed> getRequest(@Body CloudVisionRequest body);
 }
 
-//     command line commands in Google Cloud SDK Shell to get access token:
-//     set GOOGLE_APPLICATION_CREDENTIALS=C:\...\engaged-carving-311221-f915452605ff.json
-//     gcloud auth application-default print-access-token
+/*
+     command line commands in Cloud SDK Shell to get access token:
+     set GOOGLE_APPLICATION_CREDENTIALS=KEY_PATH
+     gcloud auth application-default print-access-token
+
+     See README for more details.
+*/
