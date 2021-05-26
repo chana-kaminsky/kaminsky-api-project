@@ -17,7 +17,7 @@ public interface CloudVisionService
 
 /*
      command line commands in Cloud SDK Shell to get access token:
-     set GOOGLE_APPLICATION_CREDENTIALS=KEY_PATH
+     set GOOGLE_APPLICATION_CREDENTIALS=YOUR_KEY_PATH
      gcloud auth application-default print-access-token
 
      See README for more details.
