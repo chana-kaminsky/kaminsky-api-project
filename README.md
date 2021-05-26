@@ -8,7 +8,9 @@ a JSON with an API key, and install Google's Cloud SDK. Use the correct command 
 authentication in your environment. Then run "gcloud auth application-default print-access-token" in the Cloud SDK
 shell to receive an authorization token, and paste it after Authorization: Bearer in the @Header of the service.
 
-Complaints about incorrect or offensive image labeling can be directed at Google. Enjoy!
+Complaints about incorrect image labeling can be directed at Google. 
+
+Enjoy!
 
 
 ![Application Image](images/ApplicationScreenshot.PNG)
