@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.List;
 
 /**
  * CloudVisionController is a class that initializes and
@@ -107,10 +108,12 @@ public class CloudVisionController
         descriptions.setText("Image Descriptions:\n----------------------\n");
         scores.setText("Confidence(%):\n-----------------\n");
         imageView.setImage(new Image(new File("images/" + filename.getText()).toURI().toString()));
-        for (int i = 0; i < feed.responses.get(0).labelAnnotations.size(); i++)
+
+        List<CloudVisionFeed.AnnotateImageResponse.LabelAnnotations> labelAnnotations = feed.responses.get(0).labelAnnotations;
+        for (CloudVisionFeed.AnnotateImageResponse.LabelAnnotations labelAnnotation : labelAnnotations)
         {
-            String newDescription = feed.responses.get(0).labelAnnotations.get(i).getDescription();
-            double newScore = Math.round(feed.responses.get(0).labelAnnotations.get(i).getScore() * 10000.0)/100.0;
+            String newDescription = labelAnnotation.getDescription();
+            double newScore = Math.round(labelAnnotation.getScore() * 10000.0) / 100.0;
             descriptions.setText(descriptions.getText() + newDescription + "\n");
             scores.setText(scores.getText() + newScore + "\n");
         }
